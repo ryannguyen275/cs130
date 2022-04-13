@@ -5,7 +5,7 @@
 
 body {
     margin: 0px;
-    font-family: Arial, sans-serif;
+    font-family:inherit;
 }
 header, section {
     padding: 20px;
