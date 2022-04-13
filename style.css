@@ -1,21 +1,58 @@
 /* You're welcome to change any of this! */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,300;1,500&family=Palette+Mosaic&display=swap');
+
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0px;
-    font-family:inherit;
+    font-family: 'Montserrat', sans-serif;
+	text-transform:capitalize;
 }
+
+header {
+    background-color: #f86e5b;
+    padding-top: 40px;
+    padding-bottom: 40px;
+	font-weight: 100;
+}
+
 header, section {
+	font-weight:lighter;
     padding: 20px;
 }
 p, li {
-    line-height: 1.5em;
+    line-height: 1.2em;
+}
+
+#tutorials {
+    background-color: #ffb649;
+    padding-top: 40px;
+    padding-bottom: 400px;
+	flex-grow: 4;
+}
+
+#homework {
+    background-color: #ffd549;
+    padding-top: 40px;
+    padding-bottom: 400px;
+	flex-grow: 4;
 }
 
 #inspiration {
-    background-color: #F0F0F0;
+    background-color: #49cbff;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 400px;
+	flex-grow: 4;
 }
+
+.container {
+	display: flex; /* or inline-flex */
+	justify-content: center;
+	gap: 10px;
+	gap: 10px 20px; /* row-gap column gap */
+	row-gap: 10px;
+	column-gap: 20px;
+  }
