@@ -80,18 +80,33 @@ footer {
 /* Part A: Left Navigation */
 /***************************/
 
-/* Your Code Here */
-
-
+aside {
+	padding: 20px;
+	column-gap: 30px
+}
 
 /********************************/
 /* Part B: Header & Nav Styling */
 /********************************/
 
 /* Your Code Here */
+@media (max-width: 200px) {
+	.header {
+		grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+		". . . . a b"
+		"c d e . . .";
+	}
+ }
+ 
+ .upgrade {
+	 grid-area: a;
+ }
 
-
-
+.Profile {
+	grid-area: b;
+}
 
 
 /*************************/
