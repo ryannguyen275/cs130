@@ -58,6 +58,29 @@ footer {
     grid-area: bottom;
 }
 
+aside .selected {
+    border-style: solid;
+    border-left-color: green;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: black;
+
+}
+
+main .selected {
+    border-style: solid;
+    border-top-color: black;
+    border-right-color: black;
+    border-left-color: black;
+    border-bottom-color: green;
+}
+
+.player button {
+    background-color: black;
+    display: flex;
+    flex-direction: right;
+    width: 5%;
+}
 
 /***************************/
 /* Accessories & Florishes */
@@ -80,32 +103,67 @@ footer {
 /* Part A: Left Navigation */
 /***************************/
 
-aside {
-	padding: 20px;
-	column-gap: 30px
+aside h1 {
+	margin-left: 10px;
+}
+
+aside a{
+	justify-content: space;
+	padding: 4%;
+	margin-left: 5px;
 }
 
 /********************************/
 /* Part B: Header & Nav Styling */
 /********************************/
 
-/* Your Code Here */
-@media (max-width: 200px) {
-	.header {
-		grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		grid-template-areas:
-		". . . . a b"
-		"c d e . . .";
-	}
- }
- 
- .upgrade {
-	 grid-area: a;
- }
+main header {
+	display:flex;
+	flex-direction: row;
+	justify-content: end;	
+	column-gap: 7%;
+	padding: 2%;
+	font-variant-caps: all-small-caps;
 
-.Profile {
-	grid-area: b;
+}
+
+main nav {
+	display:flex;
+	flex-direction: row;
+	justify-content: start;	
+	column-gap: 3%;
+	padding: 2%;
+	font-variant-caps: all-small-caps;
+
+}
+
+header a {
+    padding-inline: 8px;
+    justify-content: end;
+    margin: 10px;
+    border-radius: 35%;
+
+}
+
+#upgrade {
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 55px;
+    padding: 20px;
+    width: 100px;
+	height: 20px;
+	padding-top: 1.5%;
+  }
+  
+  #profile { 
+    border-style: solid;
+    border-color: black;
+    background-color: #383833;
+	border-radius: 55px;
+    padding: 20px;
+    width: 108px;
+	height: 20px;
+	padding-top: 1.5%;
 }
 
 
@@ -113,8 +171,76 @@ aside {
 /* Part C: Artists Panel */
 /*************************/
 
-/* Your Code Here */
 
+
+img { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 100%;
+	align-items: center;
+}
+
+
+.artist-card {
+    width: 14%;
+    background-color: #383833;
+    margin: 15px;
+    display: block;
+    border-radius: 20px;
+}
+
+.card-footer {
+    font-display: flex;
+    flex-wrap: wrap;
+}
+
+div { 
+    
+    display: flex;
+    flex-direction: column;
+    size: 10px;
+}
+
+
+.artist-card h2 {
+    font-size: smaller;
+}
+
+
+.card-footer2{ 
+    display: flex;
+    justify-content: space-between;
+}
+
+div h2{
+	padding: 10%;
+	justify-content: left;
+	align-items: flex-end;
+}
+
+.card-footer p { 
+
+    padding: 10%; 
+    justify-content: left;
+	align-items: flex-end;
+}
+
+article {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  footer img {
+      width: 15%;
+      height: 20%;
+      border-radius: 0%;
+  }
 
 
 
@@ -122,6 +248,19 @@ aside {
 /* Part D: Responsive UIs */
 /**************************/
 
-/* Your Code Here */
+@media (max-width: 1024px) {
+    .artist-card { 
+        width: 20%;
+    }
+}
+ 
+    @media (max-width: 600px) {
+        .artist-card { 
+            width: 30%;
+    }
+    aside { 
+        display: none;
+    }
+       }
 
 
