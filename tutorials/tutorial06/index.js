@@ -1,3 +1,4 @@
+
 const tracks = [
     {
       "id": "3AhXZa8sUQht0UEdBJgpGc",
@@ -90,15 +91,17 @@ const tracks = [
 // This code adds a card for the 1st track in the list (above)
 // How would you use a loop so that a card is generated for every 
 // track in the list?
-const track = tracks[4];
+let index = 0;
+
+for(const track of tracks){
 const template = `
-    <div data-index="0" onclick="playSong(event);">
+    <div data-index="${index}" onclick="playSong(event);">
         <img src="${track.image_url}" />
         <h2>${track.name}</h2>
     </div>`;
+	index+=1;
 document.querySelector('main').innerHTML += template;
-
-
+}
 // Part 2: 
 // Using the event object, detect the element that triggered the
 // click event (currentTarget) to figure out which song to load 
@@ -107,7 +110,11 @@ document.querySelector('main').innerHTML += template;
 // sound sample and then invoke the audio.load() and audio.play() 
 // logic.
 const playSong = (ev) => {
-    const audio = document.querySelector('audio');
+	const index = ev.currentTarget.dataset.index;
+	const track = tracks[index].preview_url;
+	document.querySelector('#audio-source').src = track;
+
+    const audio = document.querySelector("audio");
     audio.load();
     audio.play();
 }
