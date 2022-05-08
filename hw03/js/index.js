@@ -29,6 +29,7 @@ const images = [
     'images/daisy1.jpg'
 ];
 
+
 const initScreen = () => {
     images.forEach((image, idx) => {
         document.querySelector('.cards').innerHTML += `
@@ -42,3 +43,40 @@ const initScreen = () => {
 };
 
 initScreen();
+//function to show the image 
+const showImage = (ev) => {
+	const elem = ev.currentTarget;
+	ind = parseInt(elem.dataset.index);
+	document.querySelector(".featured_image").style.backgroundImage =elem.style.backgroundImage;
+  };
+  //function called ONCLICK for next biutton
+  const nextt = (ev) => {
+	if (ind  +1 > images.length - 1) {
+		ind = 0;
+	  } else {
+		ind = ind+ 1;
+	  }
+	//console.log("mommy", ind);//debugging
+	document.querySelector(".featured_image").style.backgroundImage = `url(${images[ind]})`;
+  };
+//function called ONCLICK for previous biutton
+  const prevv = (ev) => {
+	
+	if (ind  -1 < 0) {
+		ind = images.length - 1;
+	  } else {
+		ind = ind - 1;
+	  }
+	document.querySelector(".featured_image").style.backgroundImage = `url(${images[ind]})`;
+  };
+  
+  
+  const imageElements = document.querySelectorAll(".image");
+  for (const elem of imageElements) {
+	elem.onclick = showImage;
+  }
+  //need to set it to 0 or else there will be an "index unknown error"
+  ind = 0
+  document.querySelector(".next").onclick = nextt;
+  document.querySelector(".prev").onclick = prevv;
+  document.querySelector(".featured_image").onclick = nextt;
