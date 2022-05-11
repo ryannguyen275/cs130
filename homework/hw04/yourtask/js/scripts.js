@@ -50,6 +50,30 @@ const getAlbums = (term) => {
         get albums from spotify based on the search term
         "${term}" and load them into the #albums section 
         of the DOM...`);
+	const elem = document.querySelector("#albums");
+	elem.innerHTML = "";
+	fetch(baseURL + "?type=album&q=" + term)
+		.then((data)=> data.json())
+		.then((data)=> {
+			for (const albumData of data) {
+				console.log("album: ", albumData);
+				elem.innerHTML += getAlbumHTML(albumData);
+		}
+	});
+};
+
+const getAlbumHTML = (data) => {
+	return `<section class="album-card" id=${data.id}>
+    <div>
+        <img src=${data.image_url}>
+        <h2>${data.name}</h2>
+        <div class="footer">
+            <a href=${data.spotify_url} target="_blank">
+                view on spotify
+            </a>
+        </div>
+    </div>
+</section>`;
 };
 
 const getArtist = (term) => {
