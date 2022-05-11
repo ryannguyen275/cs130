@@ -17,10 +17,32 @@ const search = (ev) => {
 }
 
 const getTracks = (term) => {
-    console.log(`
-        get tracks from spotify based on the search term
-        "${term}" and load them into the #tracks section 
-        of the DOM...`);
+	console.log(`
+	"${term}"`);
+    const elem = document.querySelector("#tracks");
+	elem.innerHTML = "";
+	fetch(baseURL + "?type=track&q=" + term)
+		.then((data)=> data.json())
+		.then((data)=> {
+			console.log("tracks: ", data);
+			const firstFive = data.slice(0,5);
+			for(const artistData of firstFive) {
+				elem.innerHTML += getTrackHTML(artistData);
+			}
+	});
+};
+
+const getTrackHTML = (data) => { 
+	return `<button class="track-item preview" data-preview-tracks=${data.preview_url} onclick="handleTrackClick(event);">
+    <img src=${data.album.image_url}>
+    <i class="fas play-track fa-play" aria-hidden="true"></i>
+    <div class="label">
+        <h2>${data.name}</h2>
+        <p>
+            ${data.artist.name}
+        </p>
+    </div>
+</button>`;
 };
 
 const getAlbums = (term) => {
@@ -31,11 +53,33 @@ const getAlbums = (term) => {
 };
 
 const getArtist = (term) => {
-    console.log(`
-        get artists from spotify based on the search term
-        "${term}" and load the first artist into the #artist section 
-        of the DOM...`);
+	const elem = document.querySelector("#artist");
+	elem.innerHTML = "";
+	fetch(baseURL + "?type=artist&q=" + term)
+		.then((data)=> data.json())
+		.then((data)=> {
+			console.log(data);
+			if(data.length>0){
+			const firstArtist = data[0];
+			console.log(firstArtist);
+			elem.innerHTML += getArtistHTML(firstArtist);
+		}
+	});
 };
+
+const getArtistHTML = (data) => {
+	return `<section class="artist-card" id = ${data.id}>
+    <div>
+        <img src="${data.image_url}">
+        <h2>BTS</h2>
+        <div class="footer">
+            <a href="${data.spotify_url}" target="_blank">
+                view on spotify
+            </a>
+        </div>
+    </div>
+</section>`
+}
 
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
