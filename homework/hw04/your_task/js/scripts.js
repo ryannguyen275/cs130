@@ -71,7 +71,7 @@ const getArtistHTML = (data) => {
 	return `<section class="artist-card" id = ${data.id}>
     <div>
         <img src="${data.image_url}">
-        <h2>BTS</h2>
+        <h2>${data.name}</h2>
         <div class="footer">
             <a href="${data.spotify_url}" target="_blank">
                 view on spotify
