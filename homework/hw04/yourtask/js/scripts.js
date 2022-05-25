@@ -25,9 +25,12 @@ const getTracks = (term) => {
 		.then((data)=> data.json())
 		.then((data)=> {
 			console.log("tracks: ", data);
+			if(data.length>0){
 			const firstFive = data.slice(0,5);
 			for(const artistData of firstFive) {
-				elem.innerHTML += getTrackHTML(artistData);
+				elem.innerHTML += getTrackHTML(artistData);}
+			} else {
+				elem.innerHTML = "No tracks found that match your search criteria.";
 			}
 	});
 };
@@ -55,11 +58,16 @@ const getAlbums = (term) => {
 	fetch(baseURL + "?type=album&q=" + term)
 		.then((data)=> data.json())
 		.then((data)=> {
-			for (const albumData of data) {
-				console.log("album: ", albumData);
-				elem.innerHTML += getAlbumHTML(albumData);
-		}
-	});
+			console.log(data);
+			if(data.length>0){
+				for (const albumData of data) {
+					console.log("album: ", albumData);
+					elem.innerHTML += getAlbumHTML(albumData);	}	
+			}else {
+				elem.innerHTML = "No albums were returned.";
+			}
+		
+		});
 };
 
 const getAlbumHTML = (data) => {
@@ -87,8 +95,11 @@ const getArtist = (term) => {
 			const firstArtist = data[0];
 			console.log(firstArtist);
 			elem.innerHTML += getArtistHTML(firstArtist);
-		}
-	});
+			} else {
+				elem.innerHTML = "artist not found";
+			}
+			}
+	);
 };
 
 const getArtistHTML = (data) => {
@@ -106,8 +117,12 @@ const getArtistHTML = (data) => {
 }
 
 const handleTrackClick = (ev) => {
-    const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
+    const previewUrl = ev.currentTarget.getAttribute('data-preview-tracks');
     console.log(previewUrl);
+	document.querySelector("footer .track-item").innerHTML = ev.currentTarget.innerHTML;
+	// audioPlayer.setAudioFile(ev.currentTarget.getAttribute('data-preview-tracks'));
+	audioPlayer.setAudioFile(previewUrl);
+ 	audioPlayer.play();
 }
 
 document.querySelector('#search').onkeyup = (ev) => {
