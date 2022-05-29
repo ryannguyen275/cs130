@@ -29,6 +29,7 @@
 
 
 
+
 const initScreen = () => {
     images.forEach((image, idx) => {
         document.querySelector('.cards').innerHTML += `
@@ -77,5 +78,7 @@ const showImage = (ev) => {
   ind = 0
   document.querySelector(".next").onclick = next;
   document.querySelector(".prev").onclick = previous;
-//   document.querySelector(".featured_image").onclick = next; 
+  document.querySelector(".featured_image").onclick=()=>
+  window.open("https://open.spotify.com/playlist/1KFCGO9erNqc80Mmp6cJuG?si=dc886885c456465c","_blank") ;
+ 
  
