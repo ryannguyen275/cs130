@@ -1,0 +1,68 @@
+body{
+  background-color: rgb(203, 227, 250);
+  font-family: Raleway, sans-serif;
+  font-size: larger;
+}
+
+nav{
+  width: 100%;
+}
+.navbar {
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:rgb(0, 74, 144);
+  font-size:medium;
+}
+
+.navbar a{
+  margin-right: 15px;
+}
+
+.navbar strong {
+  margin-right: 15px;
+}
+
+.navbarn {
+  padding: 20px;
+  background-color: rgb(181, 207, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:rgb(255, 255, 255)
+}
+.navbarn a{
+  margin-right: 15px;
+}
+
+.navbarn strong {
+  margin-right: 15px;
+}
+
+.btn1{
+  background-color: rgb(234, 237, 167);
+}
+.btn2{
+  background-color: rgb(181, 193, 127);
+}
+.btn3{
+  background-color: rgb(134, 146, 255);
+}
+.btn4{
+  background-color: rgb(249, 186, 255);
+}
+.btn5{
+  background-color: rgb(252, 122, 122);
+}
+.btn6{
+  background-color: rgb(255, 200, 83);
+}
+.btn7{
+  background-color: rgb(223, 255, 155);
+}
+.btn8{
+  background-color: rgb(68, 242, 161);
+}
+
